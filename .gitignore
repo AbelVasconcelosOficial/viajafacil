@@ -1,0 +1,7 @@
+target/
+dados/*.json
+dados/*.corrompido-*
+relatorios/
+.idea/
+*.iml
+out/
