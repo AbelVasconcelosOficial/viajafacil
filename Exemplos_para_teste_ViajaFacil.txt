@@ -1,0 +1,66 @@
+VIAJAFACIL — EXEMPLOS PARA DEMONSTRAÇÃO
+=======================================
+
+Use estes cenários como roteiro. Os nomes e documentos são fictícios. Preencha cada campo conforme aparece na tela do sistema.
+
+1. CADASTRO DE CLIENTE — CASO SIMPLES
+Nome: Ana Souza
+CPF: 123.456.789-09 (fictício; se houver validação de CPF, use um CPF válido de teste)
+Telefone: (85) 99999-1111
+E-mail: ana.teste@example.com
+
+2. CADASTRO DE VEÍCULO — ECONÔMICO
+Marca/modelo: Fiat Argo
+Ano: 2022
+Categoria: Econômico
+Placa de teste: ABC1D23
+Diária de exemplo: R$ 120,00
+Na busca FIPE, tente pesquisar por “Fiat” e depois “Argo”. Se a consulta externa estiver indisponível, conclua o cadastro manualmente.
+
+3. RESERVA NORMAL — SEM ATRASO
+Cliente: Ana Souza
+Veículo: Fiat Argo
+Retirada: 10/12/2026
+Devolução prevista: 12/12/2026
+Duração: 2 diárias
+Valor estimado: 2 × R$ 120,00 = R$ 240,00
+Sinal de 30%: R$ 72,00
+Saldo previsto na devolução: R$ 168,00
+
+4. TESTE DE CONFLITO DE DISPONIBILIDADE
+Com o Argo reservado de 10/12/2026 a 12/12/2026, tente fazer outra reserva para o mesmo veículo em datas que se sobreponham, por exemplo, 11/12/2026 a 13/12/2026.
+Resultado esperado: o sistema deve impedir a sobreposição ou informar que o veículo não está disponível.
+Depois, teste um período sem sobreposição, por exemplo, a partir de 13/12/2026.
+
+5. DEVOLUÇÃO NO PRAZO
+Use a reserva normal do exemplo 3 e registre a devolução em 12/12/2026.
+Confira o valor final e o saldo a pagar. O sinal de 30% é abatido do total; ele não é devolvido ao cliente.
+
+6. DEVOLUÇÃO COM ATRASO
+Crie uma reserva de teste com diária de R$ 120,00 e devolução prevista em 12/12/2026. Use o controle de data do sistema para simular 14/12/2026 e registre a devolução.
+Atraso: 2 dias.
+Referência para conferência, se a regra aplicada for diária + multa de 20% por dia de atraso:
+Por dia: R$ 120,00 + R$ 24,00 de multa = R$ 144,00.
+Dois dias: R$ 288,00 de encargos de atraso.
+O total da devolução pode incluir também o valor normal da locação, conforme o cálculo exibido pelo sistema.
+
+7. OUTRA BUSCA FIPE
+Tente buscar modelos diferentes, como:
+- Toyota Corolla
+- Volkswagen Polo
+- Chevrolet Onix
+- Jeep Renegade
+
+Compare os resultados e veja se a categoria do veículo pode ser identificada/selecionada. Se a API falhar, use o cadastro manual.
+
+8. TESTE DE EXCLUSÃO COM REGISTRO VINCULADO
+Tente excluir um veículo que já tenha reserva ou um cliente que já tenha reserva.
+Resultado esperado: o sistema deve explicar que há registros vinculados e impedir uma exclusão que deixaria dados inconsistentes.
+
+9. RECOMEÇAR A DEMONSTRAÇÃO
+Use o botão “Zerar demonstração” para limpar os dados de teste e iniciar novamente. Confira a confirmação antes de prosseguir, pois a limpeza remove os registros locais da demonstração.
+
+Observações
+- As datas acima são exemplos; use a simulação de data do sistema para reproduzir atrasos sem precisar esperar dias reais.
+- A FIPE depende de uma API externa e pode ficar indisponível. Isso não deve impedir o cadastro manual.
+- Os valores de diária e os cálculos são referências de teste. Confira sempre os valores e regras apresentados pela versão atual do sistema.
